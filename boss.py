@@ -37,13 +37,13 @@ class boss:
         self.weaponStats=[
             {   "bullets": {"dmg": 1, "speed": 1, "attackSpeed": 100, "sprite": "BossBullet", "amount": 1, "spray": 0, "scale": 1}},
 
-            {   "bullets": {"dmg": 1, "speed": 2, "attackSpeed": 75, "sprite": "BossBullet", "amount": 1, "spray": 0, "scale": 1}, 
-                "pellets": {"dmg": 1, "speed": 2, "attackSpeed": 175, "sprite": "BossPellet", "amount": 5, "spray": 10, "scale": 2}},
+            {   "bullets": {"dmg": 1, "speed": 2, "attackSpeed": 100, "sprite": "BossBullet", "amount": 1, "spray": 0, "scale": 1}, 
+                "pellets": {"dmg": 1, "speed": 1, "attackSpeed": 200, "sprite": "BossPellet", "amount": 5, "spray": 10, "scale": 2}},
             
             {   
-                "bullets": {"dmg": 1, "speed": 2.5, "attackSpeed": 65, "sprite": "BossBullet", "amount": 1, "spray": 0, "scale": 1},
-                "pellets": {"dmg": 2, "speed": 3, "attackSpeed": 125, "sprite": "BossPellet", "amount": 9, "spray": 14, "scale": 2},
-                "missiles": {"dmg": 3, "speed": 1.5, "attackSpeed": 250, "sprite": "N/A", "amount": 1, "spray": 0, "scale": 1}},
+                "bullets": {"dmg": 1, "speed": 2.5, "attackSpeed": 75, "sprite": "BossBullet", "amount": 1, "spray": 0, "scale": 1},
+                "pellets": {"dmg": 2, "speed": 3, "attackSpeed": 250, "sprite": "BossPellet", "amount": 9, "spray": 14, "scale": 2},
+                "missiles": {"dmg": 3, "speed": 1, "attackSpeed": 250, "sprite": "N/A", "amount": 1, "spray": 0, "scale": 1}},
             
             {   
                 "bullets": {"dmg": 1, "speed": 2.5, "attackSpeed": 65, "sprite": "BossBullet", "amount": 1, "spray": 0, "scale": 1},
@@ -60,10 +60,10 @@ class boss:
             }
         ]
         self.bossStats=[
-            {"health": 25, "maxHealth": 25, "speed": 1, "initCash": 300, "postCash": 20},
-            {"health": 50, "maxHealth": 50, "speed": 2, "initCash": 400, "postCash": 30},
-            {"health": 75, "maxHealth": 75, "speed": 2, "initCash": 600, "postCash": 50},
-            {"health": 100, "maxHealth": 100, "speed": 3, "initCash": 800, "postCash": 70},
+            {"health": 25, "maxHealth": 25, "speed": 1, "initCash": 300, "postCash": 40},
+            {"health": 50, "maxHealth": 50, "speed": 2, "initCash": 400, "postCash": 50},
+            {"health": 75, "maxHealth": 75, "speed": 2, "initCash": 600, "postCash": 60},
+            {"health": 100, "maxHealth": 100, "speed": 3, "initCash": 800, "postCash": 80},
             {"health": 250, "maxHealth": 250, "speed": 4, "initCash": 1100, "postCash": 110},
         ]
 
@@ -91,6 +91,7 @@ class boss:
             "theme1": mixer.Sound("Assets/Audio/backgroundMusic1.wav"),
             "theme2": mixer.Sound("Assets/Audio/backgroundMusic2.wav"),
             "theme3": mixer.Sound("Assets/Audio/backgroundMusic3.wav"),
+            #"theme4": mixer.Sound("Assets/Audio/backgroundMusic4.wav"),
             "moving": mixer.Sound("Assets/Audio/BossMoving.wav"),
             "hit": mixer.Sound("Assets/Audio/BossHit.wav"),
             "death": mixer.Sound("Assets/Audio/BossDeath.wav")
@@ -171,7 +172,7 @@ class boss:
 
         if not self.audioChannels[5].get_busy():
             self.audioChannels[5].play(self.audio[f"theme{self.themeUpTo}"])
-            self.audioChannels[5].set_volume(0.2)
+            self.audioChannels[5].set_volume(0.1)
             self.themeUpTo+=1
             if self.themeUpTo == 4:
                 self.themeUpTo == 1
