@@ -16,7 +16,7 @@ def clamp(n, min, max):
         return n 
 
 class player:
-    def __init__(self, pos, velo, rotation, health, damage, shotCooldown, initShotCooldown, screen:pg.Surface, controlMethod:int, upgrades, fps, cash, shootAtMouse):
+    def __init__(self, pos, velo, rotation, health, bossTiersBeaten, damage, shotCooldown, initShotCooldown, screen:pg.Surface, controlMethod:int, upgrades, fps, cash, shootAtMouse):
         self.pos=pos
         self.startingPos=pos
         self.internalTimer=0
@@ -29,7 +29,7 @@ class player:
         self.fps=fps
         self.cash=cash
         self.upgrades=upgrades
-        self.bossTiersBeaten=[False, False, False, False, False]
+        self.bossTiersBeaten=bossTiersBeaten
         self.shootAtMouse=shootAtMouse
         speedMultiplier=120/self.fps
 
@@ -190,10 +190,10 @@ class player:
 
 
             if keysDown[0]:
-                self.rotation-=1.5*speedMultiplier
+                self.rotation-=2*speedMultiplier*self.speed
                 
             if keysDown[1]:
-                self.rotation+=1.5*speedMultiplier
+                self.rotation+=2*speedMultiplier*self.speed
             #self.rotVelo=max(min(self.rotVelo, self.speed/2), -self.speed/2)
             #self.rotation+=self.rotVelo
             self.rotation %= 360
