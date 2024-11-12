@@ -88,10 +88,10 @@ class boss:
         #5: ai neural network controls movement and learns as it goes
 
         self.audio={
-            "theme1": mixer.Sound("Assets/Audio/backgroundMusic1.wav"),
-            "theme2": mixer.Sound("Assets/Audio/backgroundMusic2.wav"),
-            "theme3": mixer.Sound("Assets/Audio/backgroundMusic3.wav"),
-            #"theme4": mixer.Sound("Assets/Audio/backgroundMusic4.wav"),
+            "theme1": mixer.Sound("Assets/Audio/backgroundMusic1.ogg"),
+            "theme2": mixer.Sound("Assets/Audio/backgroundMusic2.ogg"),
+            "theme3": mixer.Sound("Assets/Audio/backgroundMusic3.ogg"),
+            "theme4": mixer.Sound("Assets/Audio/backgroundMusic4.ogg"),
             "moving": mixer.Sound("Assets/Audio/BossMoving.wav"),
             "hit": mixer.Sound("Assets/Audio/BossHit.wav"),
             "death": mixer.Sound("Assets/Audio/BossDeath.wav")
@@ -174,7 +174,7 @@ class boss:
             self.audioChannels[5].play(self.audio[f"theme{self.themeUpTo}"])
             self.audioChannels[5].set_volume(0.1)
             self.themeUpTo+=1
-            if self.themeUpTo == 4:
+            if self.themeUpTo == 5:
                 self.themeUpTo == 1
 
         speedMultiplier=120/self.fps
