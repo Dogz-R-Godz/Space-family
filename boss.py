@@ -91,7 +91,6 @@ class boss:
             "theme1": mixer.Sound("Assets/Audio/backgroundMusic1.wav"),
             "theme2": mixer.Sound("Assets/Audio/backgroundMusic2.wav"),
             "theme3": mixer.Sound("Assets/Audio/backgroundMusic3.wav"),
-            "theme4": mixer.Sound("Assets/Audio/backgroundMusic4.wav"),
             "moving": mixer.Sound("Assets/Audio/BossMoving.wav"),
             "hit": mixer.Sound("Assets/Audio/BossHit.wav"),
             "death": mixer.Sound("Assets/Audio/BossDeath.wav")
@@ -174,7 +173,7 @@ class boss:
             self.audioChannels[5].play(self.audio[f"theme{self.themeUpTo}"])
             self.audioChannels[5].set_volume(0.2)
             self.themeUpTo+=1
-            if self.themeUpTo == 5:
+            if self.themeUpTo == 4:
                 self.themeUpTo == 1
 
         speedMultiplier=120/self.fps
