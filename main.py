@@ -201,13 +201,14 @@ playerShotCooldown=10
 playerInitShotCooldown=5
 playerControlMethod=1
 playerCash=0
+playerTeirsBeaten=[False, False, False, False, False]
 
 
 
 
 
 
-userPlayer=player.player(playerSpawn, playerVelo, playerRot, playerHealth, playerDamage, playerShotCooldown, playerInitShotCooldown, screen, playerControlMethod, upgrades, fps, playerCash, True)
+userPlayer=player.player(playerSpawn, playerVelo, playerRot, playerHealth, playerTeirsBeaten, playerDamage, playerShotCooldown, playerInitShotCooldown, screen, playerControlMethod, upgrades, fps, playerCash, True)
 #userPlayer.cash=100000
 keysDown=[False, False, False, False, False] 
 mouseClicked=False
@@ -238,6 +239,8 @@ def resetScreens(screen):
         minion.screen=screen
     for coi in coins:
         coi.screen=screen
+    for part in particles:
+        part.screen=screen
 
 
 def saveSettings():
@@ -492,7 +495,7 @@ while carryOn:
         if userPlayer.health < 1:
             #upgrades={"bullets": 2, "extraDamage": 1, "extraSpeed": 3, "shotCooldown": 20}
             #speed=upgrades["extraSpeed"]
-            userPlayer=player.player(playerSpawn, playerVelo, playerRot, playerHealth, playerDamage, playerShotCooldown, playerInitShotCooldown, screen, playerControlMethod, userPlayer.upgrades, fps, userPlayer.cash, True)
+            userPlayer=player.player(playerSpawn, playerVelo, playerRot, playerHealth, userPlayer.bossTiersBeaten, playerDamage, playerShotCooldown, playerInitShotCooldown, screen, playerControlMethod, userPlayer.upgrades, fps, userPlayer.cash, True)
             keysDown=[False, False, False, False, False] 
             bullets=[]
 
@@ -569,7 +572,7 @@ while carryOn:
 
                 screen.blit(text, textRect)
         if Boss.startNextBoss:
-            text = font.render(f'Next boss in {round(Boss.timeUntilNextBoss/Boss.fps, 2)}s', True, RED, None)
+            text = font.render(f'Next boss in {round(Boss.timeUntilNextBoss, 2)}s', True, RED, None)
             textRect = text.get_rect()
             textRect.center = (270, 20)
             textRect.top=healthBottom+5
